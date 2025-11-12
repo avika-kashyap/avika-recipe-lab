@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Recipe Hub — All Indian Recipes</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <header>
@@ -21,6 +21,7 @@
   <main class="container">
     <aside class="left-col card">
       <h4>Filters</h4>
+
       <div>
         <div class="small">Quick Type</div>
         <div style="margin-top:8px" class="flex">
@@ -84,8 +85,8 @@
           <div id="reviewsList" class="small muted">No reviews yet — be the first!</div>
 
           <div style="margin-top:8px">
-            <input id="reviewer" placeholder="Your name (optional)" />
-            <textarea id="reviewText" placeholder="Write a short review"></textarea>
+            <input id="reviewer" placeholder="Your name (optional)" style="padding:8px;border-radius:8px;border:1px solid #eee;width:100%;margin-bottom:6px" />
+            <textarea id="reviewText" placeholder="Write a short review" style="padding:8px;border-radius:8px;border:1px solid #eee;width:100%"></textarea>
             <div style="display:flex;gap:8px;margin-top:8px">
               <button class="btn btn-primary" id="addReviewBtn">Add Review</button>
               <button class="btn" id="clearReviewsBtn">Clear Reviews</button>
@@ -134,9 +135,9 @@
         <div>
           <label>Type</label>
           <div style="display:flex;gap:8px;margin-top:6px">
-            <label><input type="radio" name="type" value="veg" checked> Veg</label>
-            <label><input type="radio" name="type" value="vegan"> Vegan</label>
-            <label><input type="radio" name="type" value="nonveg"> Non-Veg</label>
+            <label style="font-weight:600"><input type="radio" name="type" value="veg" checked> Veg</label>
+            <label style="font-weight:600"><input type="radio" name="type" value="vegan"> Vegan</label>
+            <label style="font-weight:600"><input type="radio" name="type" value="nonveg"> Non-Veg</label>
           </div>
         </div>
 
@@ -163,7 +164,7 @@
     </div>
   </div>
 
-  <footer>Built with  — Recipe Hub (demo)</footer>
+  <footer>Built with — Recipe Hub (demo) — data stored in your browser</footer>
 
   <script src="script.js"></script>
 </body>
