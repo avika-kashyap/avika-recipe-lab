@@ -1,53 +1,1589 @@
-:root{
-  --saffron:#f6a821;
-  --deep-saffron:#e07b17;
-  --leaf:#2e7d32;
-  --cream:#fff7ef;
-  --card:#ffffff;
-  --muted:#666;
-  --glass: rgba(255,255,255,0.78);
-  font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, Arial;
-}
-*{box-sizing:border-box}
-html,body{height:100%;margin:0}
-body{
-  background: linear-gradient(160deg,var(--cream) 0%, #fff 35%, #fff9f1 65%);
-  min-height:100vh;color:#222;display:flex;flex-direction:column;-webkit-font-smoothing:antialiased;
-}
-header{display:flex;align-items:center;justify-content:space-between;padding:14px 20px;background:linear-gradient(90deg,var(--saffron),var(--deep-saffron));color:white;box-shadow:0 6px 20px rgba(0,0,0,0.08)}
-.brand{display:flex;align-items:center;gap:12px;font-weight:800;font-size:20px}
-.logo{width:48px;height:48px;border-radius:10px;background:linear-gradient(180deg,#fff5e6,#ffe7c2);display:flex;align-items:center;justify-content:center;color:var(--deep-saffron);font-weight:900}
-.controls{display:flex;gap:12px;align-items:center}
-.search-wrap{display:flex;align-items:center;gap:8px;background:rgba(255,255,255,0.95);padding:6px;border-radius:999px}
-.search-wrap input{border:0;outline:0;padding:8px 12px;font-size:14px;border-radius:999px;background:transparent;width:320px}
-.btn{padding:8px 12px;border-radius:8px;border:0;cursor:pointer;font-weight:700}
-.btn-primary{background:var(--leaf);color:white}
-.btn-accent{background:var(--saffron);color:white}
+// Complete Indian recipes data with detailed steps
+let recipes = [
+    // 🍳 Breakfast (5 Dishes)
+    {
+        id: 1,
+        name: "Poha",
+        category: "breakfast",
+        type: "veg",
+        description: "Light and fluffy flattened rice breakfast with onions and spices",
+        image: "https://i.pinimg.com/736x/6c/f4/67/6cf4674d31ca5efdf262b404d1f5de53.jpg",
+        time: 20,
+        rating: 4.5,
+        ingredients: [
+            "2 cups thick poha (flattened rice)",
+            "1 large onion, finely chopped",
+            "2 green chilies, finely chopped",
+            "1 tbsp lemon juice",
+            "1 tsp mustard seeds",
+            "1 tsp turmeric powder",
+            "10-12 curry leaves",
+            "2 tbsp oil",
+            "Salt to taste",
+            "Fresh coriander for garnish"
+        ],
+        instructions: [
+            "Rinse poha in water until soft. Drain excess water completely",
+            "Heat oil in a pan, add mustard seeds and let them splutter",
+            "Add chopped onions and green chilies, sauté until onions turn translucent",
+            "Add curry leaves and turmeric powder, mix well",
+            "Add the rinsed poha and salt, mix gently to combine all ingredients",
+            "Cook for 3-4 minutes on low flame, stirring occasionally",
+            "Add lemon juice and mix well",
+            "Garnish with fresh coriander leaves and serve hot"
+        ]
+    },
+    {
+        id: 2,
+        name: "Masala Dosa",
+        category: "breakfast", 
+        type: "veg",
+        description: "Crispy fermented rice crepe stuffed with spiced potato filling",
+        image: "https://i.pinimg.com/1200x/d4/d0/55/d4d05510d95f793fd27855bbe5851f20.jpg",
+        time: 30,
+        rating: 4.8,
+        ingredients: [
+            "2 cups dosa batter (fermented rice and lentil batter)",
+            "3 large potatoes, boiled and mashed",
+            "1 large onion, sliced",
+            "1 tsp mustard seeds",
+            "1 tsp urad dal",
+            "2 dry red chilies",
+            "10-12 curry leaves",
+            "1/2 tsp turmeric powder",
+            "2 tbsp oil",
+            "Salt to taste"
+        ],
+        instructions: [
+            "Heat oil in a pan, add mustard seeds and let them splutter",
+            "Add urad dal, red chilies and curry leaves, sauté for 30 seconds",
+            "Add sliced onions and sauté until golden brown",
+            "Add turmeric powder and mashed potatoes, mix well",
+            "Add salt and cook for 2-3 minutes. Potato filling is ready",
+            "Heat a dosa tawa, pour ladle of batter and spread in circular motion",
+            "Drizzle oil around edges, cook until bottom turns golden brown",
+            "Place potato filling in center, fold dosa and serve with chutney"
+        ]
+    },
+    {
+        id: 3,
+        name: "Aloo Paratha",
+        category: "breakfast",
+        type: "veg",
+        description: "Whole wheat flatbread stuffed with spiced potato mixture",
+        image: "https://i.pinimg.com/1200x/df/a8/89/dfa889dea3b331a8afe922a38a4477e1.jpg",
+        time: 40,
+        rating: 4.7,
+        ingredients: [
+            "2 cups whole wheat flour",
+            "3 large potatoes, boiled and mashed",
+            "1 tsp cumin seeds",
+            "2 green chilies, finely chopped",
+            "1 tsp garam masala",
+            "1/2 tsp amchur (dry mango powder)",
+            "2 tbsp ghee",
+            "Fresh coriander, chopped",
+            "Salt to taste"
+        ],
+        instructions: [
+            "Knead wheat flour with water to make soft dough. Cover and rest for 20 minutes",
+            "Mix mashed potatoes with all spices, green chilies and coriander",
+            "Take lemon-sized dough ball, roll into small circle",
+            "Place potato stuffing in center, bring edges together and seal",
+            "Gently roll into medium-thick paratha using dry flour",
+            "Heat tawa, cook paratha on both sides with ghee until golden spots appear",
+            "Press edges gently while cooking for even cooking",
+            "Serve hot with curd, pickle or butter"
+        ]
+    },
+    {
+        id: 4,
+        name: "Idli-Sambar",
+        category: "breakfast",
+        type: "veg",
+        description: "Soft steamed rice cakes served with lentil vegetable stew",
+        image: "https://i.pinimg.com/736x/06/d3/0d/06d30da0f40806b6cd07b51cb16fdf0d.jpg",
+        time: 25,
+        rating: 4.6,
+        ingredients: [
+            "8-10 idlis (steamed rice cakes)",
+            "1 cup toor dal (pigeon peas)",
+            "1 cup mixed vegetables (carrot, beans, pumpkin)",
+            "1 tbsp sambar powder",
+            "1/2 tsp turmeric powder",
+            "1 tsp tamarind paste",
+            "2 tbsp oil",
+            "1 tsp mustard seeds",
+            "10-12 curry leaves",
+            "2 dry red chilies"
+        ],
+        instructions: [
+            "Pressure cook toor dal with turmeric until soft and mushy",
+            "Cook mixed vegetables in water until tender",
+            "Mix cooked dal and vegetables, add sambar powder and salt",
+            "Add tamarind paste and simmer for 10 minutes",
+            "Heat oil for tempering, add mustard seeds, red chilies and curry leaves",
+            "Pour tempering over sambar, mix well and cover",
+            "Steam idlis in idli maker for 10-12 minutes",
+            "Serve hot idlis with sambar and coconut chutney"
+        ]
+    },
+    {
+        id: 5,
+        name: "Upma",
+        category: "breakfast",
+        type: "veg",
+        description: "Savory semolina porridge with vegetables and spices",
+        image: "https://i.pinimg.com/1200x/7c/9f/9f/7c9f9f84ce3dc884796e606d921ada5c.jpg",
+        time: 20,
+        rating: 4.4,
+        ingredients: [
+            "1 cup rava (semolina)",
+            "1 onion, finely chopped",
+            "1 carrot, finely chopped",
+            "2 green chilies, slit",
+            "1 tsp mustard seeds",
+            "1 tsp urad dal",
+            "10-12 curry leaves",
+            "2 tbsp oil",
+            "2.5 cups water",
+            "Salt to taste"
+        ],
+        instructions: [
+            "Dry roast rava in pan until fragrant and light golden. Keep aside",
+            "Heat oil in same pan, add mustard seeds and let them splutter",
+            "Add urad dal, curry leaves and green chilies, sauté for 30 seconds",
+            "Add chopped onions and carrots, sauté until onions turn translucent",
+            "Add water and salt, bring to rolling boil",
+            "Reduce heat to low, slowly add roasted rava while stirring continuously",
+            "Cook covered for 3-4 minutes on low flame",
+            "Fluff up with fork, garnish with coriander and serve hot"
+        ]
+    },
 
-.container{display:grid;grid-template-columns:260px 1fr 420px;gap:18px;padding:18px;align-items:start;flex:1}
-@media(max-width:1100px){.container{grid-template-columns:1fr}.right-col{order:3}.left-col{order:1}.middle-col{order:2}}
-.card{background:var(--card);border-radius:12px;padding:12px;box-shadow:0 8px 30px rgba(17,24,39,0.06)}
-.small{font-size:13px;color:var(--muted)}
-.left-col .filters{display:flex;flex-direction:column;gap:12px}
-.cuisine-list{display:flex;flex-wrap:wrap;gap:8px}
-.chip{padding:8px 12px;border-radius:999px;background:var(--glass);cursor:pointer;font-weight:700}
-.chip.active{background:linear-gradient(90deg,var(--saffron),var(--deep-saffron));color:white}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px}
-.recipe-card{display:flex;flex-direction:column;border-radius:12px;overflow:hidden;background:linear-gradient(180deg,#fff,#fff);box-shadow:0 10px 22px rgba(0,0,0,0.06);cursor:pointer}
-.recipe-card img{width:100%;height:140px;object-fit:cover}
-.rc-body{padding:10px}
-.meta{display:flex;justify-content:space-between;align-items:center;font-size:13px;color:var(--muted)}
-.right-col{position:sticky;top:18px;align-self:start}
-.detail-img{width:100%;height:220px;object-fit:cover;border-radius:8px}
-h3{margin:8px 0}
-ul{padding-left:18px}
-.ingredients li{margin-bottom:6px}
-.steps li{margin-bottom:10px}
-.modal-backdrop{position:fixed;inset:0;background:rgba(0,0,0,0.45);display:none;align-items:center;justify-content:center;padding:20px;z-index:40}
-.modal{width:100%;max-width:820px;background:white;border-radius:12px;padding:18px;box-shadow:0 28px 80px rgba(0,0,0,0.35)}
-.form-row{display:flex;gap:8px}
-input[type="text"],textarea,select{width:100%;padding:10px;border-radius:8px;border:1px solid #e6e6e6;font-size:14px}
-label{font-weight:700;font-size:13px}
-footer{padding:12px;text-align:center;font-size:13px;color:var(--muted)}
-.muted{color:var(--muted)}
-.flex{display:flex;gap:8px;align-items:center}
+    // 🍛 Lunch (5 Dishes)
+    {
+        id: 6,
+        name: "Rajma Chawal",
+        category: "lunch",
+        type: "veg",
+        description: "Kidney beans curry served with steamed rice - North Indian comfort food",
+        image: "https://i.pinimg.com/1200x/5c/30/31/5c3031ac36dce1bbd328f3a48fe8c68d.jpg",
+        time: 45,
+        rating: 4.8,
+        ingredients: [
+            "1 cup rajma (kidney beans), soaked overnight",
+            "2 large onions, finely chopped",
+            "3 tomatoes, pureed",
+            "1 tbsp ginger-garlic paste",
+            "2 tsp rajma masala",
+            "1 tsp garam masala",
+            "2 tbsp oil",
+            "1 tsp cumin seeds",
+            "Fresh coriander for garnish",
+            "Steamed rice for serving"
+        ],
+        instructions: [
+            "Pressure cook soaked rajma with salt until soft and mushy",
+            "Heat oil in kadai, add cumin seeds and let them splutter",
+            "Add chopped onions, sauté until golden brown",
+            "Add ginger-garlic paste, cook until raw smell disappears",
+            "Add tomato puree, cook until oil separates from masala",
+            "Add all spice powders and cook for 2 minutes",
+            "Add cooked rajma with its water, simmer for 15-20 minutes",
+            "Garnish with coriander, serve hot with steamed rice"
+        ]
+    },
+    {
+        id: 7,
+        name: "Chole Bhature",
+        category: "lunch",
+        type: "veg",
+        description: "Spicy chickpea curry with deep-fried leavened bread",
+        image: "https://i.pinimg.com/736x/f5/9c/9a/f59c9a7f63c2cd4bd587f3de73f184a4.jpg",
+        time: 50,
+        rating: 4.7,
+        ingredients: [
+            "1 cup chickpeas, soaked overnight",
+            "2 tea bags (for dark color)",
+            "3 onions, finely chopped",
+            "3 tomatoes, pureed",
+            "2 tbsp chole masala",
+            "1 tsp amchur powder",
+            "1 tsp ginger juliennes",
+            "2 cups maida (all-purpose flour)",
+            "1/2 cup curd",
+            "Oil for frying"
+        ],
+        instructions: [
+            "Pressure cook chickpeas with tea bags until very soft",
+            "Heat oil, sauté onions until golden, add ginger and spices",
+            "Add tomato puree, cook until oil separates",
+            "Add cooked chickpeas, simmer for 20 minutes. Add amchur at end",
+            "For bhature: Knead maida with curd, salt and water to soft dough",
+            "Cover and rest dough for 3-4 hours",
+            "Roll into circles, deep fry until puffed and golden",
+            "Serve hot chole with bhature and onions"
+        ]
+    },
+    {
+        id: 8,
+        name: "Paneer Butter Masala",
+        category: "lunch",
+        type: "veg",
+        description: "Cottage cheese cubes in rich creamy tomato gravy",
+        image: "https://i.pinimg.com/1200x/0e/61/5b/0e615bf53df1e694ea90a7589ffb53a1.jpg",
+        time: 35,
+        rating: 4.9,
+        ingredients: [
+            "250g paneer cubes",
+            "4 tomatoes, pureed",
+            "2 onions, paste",
+            "1 cup fresh cream",
+            "2 tbsp butter",
+            "1 tbsp kasuri methi",
+            "2 tsp sugar",
+            "1 tbsp ginger-garlic paste",
+            "2 tsp garam masala",
+            "Salt to taste"
+        ],
+        instructions: [
+            "Heat butter, sauté onion paste until golden brown",
+            "Add ginger-garlic paste, cook for 2 minutes",
+            "Add tomato puree, cook until oil separates and raw smell disappears",
+            "Add all spices and cook for 5 minutes on low flame",
+            "Add paneer cubes and mix gently",
+            "Add fresh cream and kasuri methi, simmer for 5 minutes",
+            "Add sugar to balance acidity of tomatoes",
+            "Garnish with cream and serve hot with naan or rice"
+        ]
+    },
+    {
+        id: 9,
+        name: "Chicken Biryani",
+        category: "lunch",
+        type: "nonveg",
+        description: "Fragrant rice layered with spiced chicken and saffron",
+        image: "https://i.pinimg.com/1200x/72/e1/0b/72e10b76ecbfb101cc2b5491f02ed8be.jpg",
+        time: 60,
+        rating: 4.9,
+        ingredients: [
+            "500g chicken pieces",
+            "2 cups basmati rice, soaked",
+            "3 onions, sliced and fried",
+            "1 cup curd",
+            "2 tbsp biryani masala",
+            "1 tsp saffron strands in milk",
+            "4 tbsp ghee",
+            "Whole spices (bay leaf, cardamom, cinnamon)",
+            "Mint and coriander leaves",
+            "Salt to taste"
+        ],
+        instructions: [
+            "Marinate chicken with curd, biryani masala and salt for 2 hours",
+            "Parboil rice with whole spices until 70% cooked. Drain",
+            "Heat ghee in heavy bottom pan, layer with marinated chicken",
+            "Spread half cooked rice over chicken layer",
+            "Sprinkle fried onions, mint and coriander",
+            "Add remaining rice layer, sprinkle saffron milk",
+            "Cover with tight lid, cook on dum (steam) for 20 minutes",
+            "Let it rest for 10 minutes, fluff gently and serve with raita"
+        ]
+    },
+    {
+        id: 10,
+        name: "Dal Tadka",
+        category: "lunch",
+        type: "veg",
+        description: "Tempered lentil curry with aromatic spices",
+        image: "https://i.pinimg.com/1200x/2a/8e/57/2a8e57bc82908377e58203bfd9f95e84.jpg",
+        time: 30,
+        rating: 4.5,
+        ingredients: [
+            "1 cup toor dal (pigeon peas)",
+            "1 tsp turmeric powder",
+            "2 tomatoes, chopped",
+            "1 tbsp ghee",
+            "1 tsp cumin seeds",
+            "4 garlic cloves, crushed",
+            "2 dry red chilies",
+            "1 tsp red chili powder",
+            "Fresh coriander",
+            "Salt to taste"
+        ],
+        instructions: [
+            "Pressure cook toor dal with turmeric and salt until mushy",
+            "Whisk the cooked dal to smooth consistency, add water if needed",
+            "Heat ghee in small pan for tempering",
+            "Add cumin seeds, let them splutter",
+            "Add crushed garlic and dry red chilies, sauté until golden",
+            "Add red chili powder and immediately pour over hot dal",
+            "Cover immediately to trap the aromas",
+            "Garnish with fresh coriander, serve with rice or roti"
+        ]
+    },
+
+    // 🍽️ Dinner (5 Dishes)
+    {
+        id: 11,
+        name: "Butter Chicken",
+        category: "dinner",
+        type: "nonveg",
+        description: "Tender chicken in rich buttery tomato gravy",
+        image: "https://i.pinimg.com/1200x/c7/f2/22/c7f222c626e3c44173eecbbfbcd18f1c.jpg",
+        time: 50,
+        rating: 4.9,
+        ingredients: [
+            "500g chicken boneless pieces",
+            "1 cup fresh cream",
+            "4 tomatoes, pureed",
+            "2 tbsp butter",
+            "1 tbsp kasuri methi",
+            "2 tsp sugar",
+            "1 tbsp ginger-garlic paste",
+            "2 tsp garam masala",
+            "1 tsp red chili powder",
+            "Salt to taste"
+        ],
+        instructions: [
+            "Marinate chicken with curd and spices for 2 hours",
+            "Grill or pan-fry chicken until cooked. Keep aside",
+            "Heat butter, sauté ginger-garlic paste until fragrant",
+            "Add tomato puree, cook until oil separates and raw smell goes",
+            "Add all spices and cook until gravy thickens",
+            "Add grilled chicken pieces, simmer for 10 minutes",
+            "Add fresh cream and kasuri methi, cook for 5 more minutes",
+            "Finish with butter and cream, serve with naan or rice"
+        ]
+    },
+    {
+        id: 12,
+        name: "Palak Paneer",
+        category: "dinner",
+        type: "veg",
+        description: "Cottage cheese cubes in creamy spinach gravy",
+        image: "https://i.pinimg.com/1200x/1d/c1/ab/1dc1ab10960228a045b7388ef72d7fed.jpg",
+        time: 35,
+        rating: 4.7,
+        ingredients: [
+            "250g paneer cubes",
+            "2 bunches fresh spinach",
+            "2 onions, chopped",
+            "3 garlic cloves",
+            "1 inch ginger",
+            "2 green chilies",
+            "1/2 cup fresh cream",
+            "1 tsp garam masala",
+            "2 tbsp butter",
+            "Salt to taste"
+        ],
+        instructions: [
+            "Blanch spinach in boiling water for 2 minutes, immediately transfer to ice water",
+            "Grind spinach with ginger, garlic and green chilies to smooth paste",
+            "Heat butter, sauté onions until golden brown",
+            "Add spinach puree and cook for 10-15 minutes",
+            "Add all spices and cook until oil separates",
+            "Add paneer cubes and mix gently",
+            "Add fresh cream and simmer for 5 minutes",
+            "Serve hot with naan or paratha"
+        ]
+    },
+    {
+        id: 13,
+        name: "Egg Curry",
+        category: "dinner",
+        type: "nonveg",
+        description: "Boiled eggs in spicy onion-tomato gravy",
+        image: "https://i.pinimg.com/1200x/e1/cd/04/e1cd045cbd7f1a9df4e45d793e031ff2.jpg",
+        time: 30,
+        rating: 4.6,
+        ingredients: [
+            "6 boiled eggs",
+            "2 onions, finely chopped",
+            "3 tomatoes, pureed",
+            "1 tbsp ginger-garlic paste",
+            "2 tsp coriander powder",
+            "1 tsp turmeric powder",
+            "1 tsp red chili powder",
+            "2 tbsp oil",
+            "Fresh coriander for garnish",
+            "Salt to taste"
+        ],
+        instructions: [
+            "Heat oil in pan, sauté onions until golden brown",
+            "Add ginger-garlic paste, cook until raw smell disappears",
+            "Add tomato puree, cook until oil separates from masala",
+            "Add all spice powders and cook for 2 minutes",
+            "Add water to make gravy consistency, simmer for 10 minutes",
+            "Make small slits on boiled eggs and add to gravy",
+            "Cook for 5-7 minutes on low flame",
+            "Garnish with coriander, serve with rice or roti"
+        ]
+    },
+    {
+        id: 14,
+        name: "Vegetable Pulao",
+        category: "dinner",
+        type: "veg",
+        description: "Fragrant rice cooked with mixed vegetables and spices",
+        image: "https://i.pinimg.com/1200x/5e/7e/06/5e7e062c0bdbb2aaa0c6555bee5e3abd.jpg",
+        time: 30,
+        rating: 4.5,
+        ingredients: [
+            "2 cups basmati rice, soaked",
+            "1 cup mixed vegetables (carrots, beans, peas, corn)",
+            "1 onion, sliced",
+            "2 tbsp ghee",
+            "Whole spices (bay leaf, cardamom, cinnamon, cloves)",
+            "1 tsp cumin seeds",
+            "4 cups water",
+            "Fresh coriander and mint",
+            "Salt to taste"
+        ],
+        instructions: [
+            "Heat ghee in pressure cooker, add whole spices and cumin seeds",
+            "Add sliced onions, sauté until golden brown",
+            "Add mixed vegetables, sauté for 3-4 minutes",
+            "Add drained rice and sauté for 2 minutes",
+            "Add water, salt, and fresh herbs",
+            "Pressure cook for 2 whistles on medium flame",
+            "Let pressure release naturally, fluff rice with fork",
+            "Serve hot with raita or curry"
+        ]
+    },
+    {
+        id: 15,
+        name: "Roti with Mixed Veg Curry",
+        category: "dinner",
+        type: "veg",
+        description: "Whole wheat flatbread with mixed vegetable curry",
+        image: "https://i.pinimg.com/1200x/04/87/41/048741cb47d1dbfa85bad8a03bbaa1bf.jpg",
+        time: 40,
+        rating: 4.4,
+        ingredients: [
+            "2 cups whole wheat flour",
+            "2 cups mixed vegetables (potato, cauliflower, peas, carrots)",
+            "2 onions, chopped",
+            "3 tomatoes, pureed",
+            "2 tsp kitchen king masala",
+            "1 tsp turmeric powder",
+            "2 tbsp oil",
+            "Fresh coriander",
+            "Water as needed",
+            "Salt to taste"
+        ],
+        instructions: [
+            "Knead wheat flour with water to make soft dough for roti",
+            "Heat oil, sauté onions until golden, add tomato puree",
+            "Cook until oil separates, add all spices",
+            "Add mixed vegetables and water, cook until vegetables are tender",
+            "For roti: Roll dough balls into circles",
+            "Cook on hot tawa until bubbles appear, flip and cook other side",
+            "Press with cloth to puff up roti",
+            "Serve hot rotis with mixed vegetable curry"
+        ]
+    },
+
+    // 🍰 Desserts (5 Dishes)
+    {
+        id: 16,
+        name: "Gulab Jamun",
+        category: "dessert",
+        type: "veg",
+        description: "Deep-fried milk solids dumplings in sugar syrup",
+        image: "https://i.pinimg.com/736x/e6/51/46/e651469a60a2a99adfb2e8cd1fdbc6a4.jpg",
+        time: 45,
+        rating: 4.8,
+        ingredients: [
+            "1 cup khoya (milk solids), grated",
+            "1/4 cup maida (all-purpose flour)",
+            "1/4 tsp baking powder",
+            "2 cups sugar",
+            "2 cups water",
+            "4-5 cardamom pods, crushed",
+            "1 tsp rose water",
+            "Oil for frying",
+            "Milk for kneading",
+            "Saffron strands (optional)"
+        ],
+        instructions: [
+            "Make sugar syrup by boiling sugar and water with cardamom until one-string consistency",
+            "Add rose water and keep syrup warm",
+            "Mix khoya, maida and baking powder to make soft dough",
+            "Add milk gradually to make smooth, crack-free dough",
+            "Make small smooth balls without cracks",
+            "Heat oil on low-medium heat, fry balls until golden brown",
+            "Drain and immediately dip in warm sugar syrup",
+            "Let them soak for 2-3 hours before serving"
+        ]
+    },
+    {
+        id: 17,
+        name: "Kheer",
+        category: "dessert",
+        type: "veg",
+        description: "Creamy rice pudding with nuts and cardamom",
+        image: "https://i.pinimg.com/736x/2e/82/9a/2e829a3f1a631e4e383e65d33f54e55a.jpg",
+        time: 40,
+        rating: 4.7,
+        ingredients: [
+            "1/2 cup basmati rice",
+            "1 liter full cream milk",
+            "1/2 cup sugar",
+            "1/4 cup mixed nuts (almonds, pistachios, cashews)",
+            "1 tsp cardamom powder",
+            "1 tbsp ghee",
+            "Saffron strands",
+            "Raisins for garnish"
+        ],
+        instructions: [
+            "Wash and soak rice for 30 minutes. Drain",
+            "Boil milk in heavy bottom pan, add rice",
+            "Cook on low flame, stirring occasionally until rice is cooked",
+            "Add sugar and cook until kheer thickens",
+            "In separate pan, heat ghee and fry nuts until golden",
+            "Add fried nuts and cardamom powder to kheer",
+            "Soak saffron in warm milk and add for color",
+            "Serve warm or chilled, garnished with nuts"
+        ]
+    },
+    {
+        id: 18,
+        name: "Rasgulla",
+        category: "dessert",
+        type: "veg",
+        description: "Soft cottage cheese balls in light sugar syrup",
+        image: "https://i.pinimg.com/736x/03/55/5a/03555afe31b7ca2b9db1dbf0f45a02e6.jpg",
+        time: 60,
+        rating: 4.8,
+        ingredients: [
+            "1 liter full cream milk",
+            "2 tbsp lemon juice or vinegar",
+            "1.5 cups sugar",
+            "4 cups water",
+            "1 tsp rose water",
+            "2-3 cardamom pods",
+            "Ice cubes",
+            "Cheese cloth for straining"
+        ],
+        instructions: [
+            "Boil milk, when it boils add lemon juice gradually until milk curdles",
+            "Strain through cheese cloth, wash with cold water to remove sourness",
+            "Hang for 30 minutes to remove excess water",
+            "Knead chenna until smooth and soft, make small balls",
+            "Make sugar syrup with sugar and water, add cardamom",
+            "When syrup boils, gently add chenna balls",
+            "Cover and cook for 15-20 minutes on medium flame",
+            "Add rose water, cool completely before serving"
+        ]
+    },
+    {
+        id: 19,
+        name: "Sooji Halwa",
+        category: "dessert",
+        type: "veg",
+        description: "Semolina pudding with ghee and dry fruits",
+        image: "https://i.pinimg.com/736x/de/f5/7e/def57e82764c5a280534dc34036221c2.jpg",
+        time: 25,
+        rating: 4.6,
+        ingredients: [
+            "1 cup sooji (semolina)",
+            "1/2 cup ghee",
+            "1 cup sugar",
+            "3 cups water",
+            "1/4 cup mixed dry fruits (almonds, cashews, raisins)",
+            "1 tsp cardamom powder",
+            "Saffron strands (optional)",
+            "1 tbsp chopped pistachios for garnish"
+        ],
+        instructions: [
+            "Heat ghee in heavy bottom pan, add sooji and roast on low flame until golden and fragrant",
+            "In separate pan, heat water and sugar to make sugar syrup",
+            "Slowly add hot sugar syrup to roasted sooji while stirring continuously",
+            "Keep stirring to avoid lumps until halwa thickens",
+            "Add cardamom powder and mix well",
+            "In small pan, fry dry fruits in little ghee until golden",
+            "Add fried dry fruits to halwa and mix",
+            "Garnish with chopped pistachios and serve hot"
+        ]
+    },
+    {
+        id: 20,
+        name: "Chocolate Ladoo",
+        category: "dessert",
+        type: "veg",
+        description: "Sweet balls made with biscuit crumbs and chocolate",
+        image: "https://i.pinimg.com/1200x/c1/d7/27/c1d727cde50616024356808158b396b2.jpg",
+        time: 20,
+        rating: 4.5,
+        ingredients: [
+            "2 cups biscuit crumbs (Marie or digestive biscuits)",
+            "1/2 cup cocoa powder",
+            "1 cup condensed milk",
+            "1/2 cup powdered sugar",
+            "1/2 cup desiccated coconut",
+            "2 tbsp butter",
+            "1 tsp vanilla essence",
+            "Chopped nuts for coating",
+            "Chocolate sprinkles for decoration"
+        ],
+        instructions: [
+            "Crush biscuits finely in mixer to make fine crumbs",
+            "In mixing bowl, combine biscuit crumbs, cocoa powder and powdered sugar",
+            "Add condensed milk, melted butter and vanilla essence",
+            "Mix well to form smooth dough-like consistency",
+            "Take small portions and roll into smooth balls",
+            "Coat with desiccated coconut or chopped nuts",
+            "Decorate with chocolate sprinkles",
+            "Refrigerate for 1 hour before serving"
+        ]
+    },
+
+    // 🌱 Vegetarian (5 Dishes)
+    {
+        id: 21,
+        name: "Paneer Tikka",
+        category: "veg",
+        type: "veg",
+        description: "Marinated cottage cheese cubes grilled to perfection",
+        image: "https://i.pinimg.com/736x/b0/5e/1b/b05e1bf78f121472db8382520cbaf33e.jpg",
+        time: 35,
+        rating: 4.7,
+        ingredients: [
+            "250g paneer cubes",
+            "1 cup thick curd",
+            "2 tbsp besan (gram flour)",
+            "1 tbsp ginger-garlic paste",
+            "2 tsp chaat masala",
+            "1 tsp red chili powder",
+            "1 tsp garam masala",
+            "2 tbsp oil",
+            "Bell peppers and onions for skewers",
+            "Salt to taste"
+        ],
+        instructions: [
+            "Hang curd in muslin cloth for 30 minutes to remove excess water",
+            "In bowl, mix hung curd with all spices and besan",
+            "Add paneer cubes and mix gently to coat with marinade",
+            "Cover and refrigerate for at least 2 hours",
+            "Thread marinated paneer with bell peppers and onions on skewers",
+            "Brush with oil and grill in oven or on tawa until charred",
+            "Turn occasionally for even cooking",
+            "Serve hot with mint chutney and onions"
+        ]
+    },
+    {
+        id: 22,
+        name: "Vegetable Curry",
+        category: "veg",
+        type: "veg",
+        description: "Mixed vegetables in rich onion-tomato gravy",
+        image: "https://i.pinimg.com/1200x/e7/c8/de/e7c8de9d9a0a6e36802631b7c03b0528.jpg",
+        time: 40,
+        rating: 4.5,
+        ingredients: [
+            "3 cups mixed vegetables (potato, cauliflower, peas, carrots, beans)",
+            "2 onions, finely chopped",
+            "3 tomatoes, pureed",
+            "1 tbsp ginger-garlic paste",
+            "2 tsp coriander powder",
+            "1 tsp turmeric powder",
+            "1 tsp garam masala",
+            "2 tbsp oil",
+            "Fresh coriander for garnish",
+            "Salt to taste"
+        ],
+        instructions: [
+            "Heat oil in pressure cooker, sauté onions until golden brown",
+            "Add ginger-garlic paste, cook until raw smell disappears",
+            "Add tomato puree, cook until oil separates from masala",
+            "Add all spice powders and cook for 2 minutes",
+            "Add mixed vegetables and mix well",
+            "Add water and pressure cook for 2 whistles",
+            "Let pressure release naturally, garnish with coriander",
+            "Serve hot with roti or rice"
+        ]
+    },
+    {
+        id: 23,
+        name: "Dal Makhani",
+        category: "veg",
+        type: "veg",
+        description: "Creamy black lentils slow-cooked with butter and cream",
+        image: "https://i.pinimg.com/1200x/e7/c8/de/e7c8de9d9a0a6e36802631b7c03b0528.jpg",
+        time: 60,
+        rating: 4.8,
+        ingredients: [
+            "1 cup whole black urad dal",
+            "1/4 cup rajma (kidney beans)",
+            "2 onions, finely chopped",
+            "3 tomatoes, pureed",
+            "1/2 cup fresh cream",
+            "2 tbsp butter",
+            "1 tbsp ginger-garlic paste",
+            "2 tsp garam masala",
+            "1 tsp kasuri methi",
+            "Salt to taste"
+        ],
+        instructions: [
+            "Soak urad dal and rajma overnight",
+            "Pressure cook with salt until very soft and mushy",
+            "Heat butter, sauté onions until golden, add ginger-garlic paste",
+            "Add tomato puree, cook until oil separates",
+            "Add cooked dal and simmer for 30-40 minutes on low flame",
+            "Add fresh cream and kasuri methi, cook for 10 more minutes",
+            "Finish with butter and cream",
+            "Serve hot with naan or rice"
+        ]
+    },
+    {
+        id: 24,
+        name: "Baingan Bharta",
+        category: "veg",
+        type: "veg",
+        description: "Smoky roasted brinjal mash with onions and spices",
+        image: "https://i.pinimg.com/736x/bc/e6/70/bce6708952226e5cd34ec0976aa8c19d.jpg",
+        time: 45,
+        rating: 4.6,
+        instructions: [
+            "Roast whole brinjal directly on flame until skin is charred and flesh is soft",
+            "Let it cool, then peel the charred skin",
+            "Mash the brinjal flesh properly and keep aside",
+            "Heat oil in pan, add cumin seeds and let them splutter",
+            "Add chopped onions and green chilies, sauté until golden",
+            "Add ginger-garlic paste and cook for 2 minutes",
+            "Add chopped tomatoes and cook until soft",
+            "Add mashed brinjal and all spices, cook for 10-15 minutes",
+            "Garnish with fresh coriander and serve hot with roti"
+        ],
+        ingredients: [
+            "1 large brinjal (eggplant)",
+            "2 onions, finely chopped",
+            "2 tomatoes, chopped",
+            "3 garlic cloves, minced",
+            "1 inch ginger, grated",
+            "2 green chilies, chopped",
+            "1 tsp cumin seeds",
+            "1 tsp coriander powder",
+            "2 tbsp oil",
+            "Fresh coriander for garnish"
+        ]
+    },
+    {
+        id: 25,
+        name: "Aloo Gobi",
+        category: "veg",
+        type: "veg",
+        description: "Potato and cauliflower dry curry with Indian spices",
+        image: "https://i.pinimg.com/1200x/69/0f/56/690f5698289dc78d19136fa5bb641e27.jpg",
+        time: 35,
+        rating: 4.5,
+        ingredients: [
+            "2 potatoes, cubed",
+            "1 small cauliflower, cut into florets",
+            "1 onion, finely chopped",
+            "2 tomatoes, chopped",
+            "1 tsp cumin seeds",
+            "1 tsp turmeric powder",
+            "1 tsp coriander powder",
+            "1/2 tsp red chili powder",
+            "2 tbsp oil",
+            "Fresh coriander for garnish"
+        ],
+        instructions: [
+            "Heat oil in pan, add cumin seeds and let them splutter",
+            "Add chopped onions and sauté until golden brown",
+            "Add chopped tomatoes and cook until soft and mushy",
+            "Add all spice powders and cook for 2 minutes",
+            "Add potato cubes and cook for 5 minutes",
+            "Add cauliflower florets and mix gently",
+            "Cover and cook on low flame until vegetables are tender",
+            "Garnish with fresh coriander and serve hot with roti"
+        ]
+    },
+
+    // 🍗 Non-Veg (5 Dishes)
+    {
+        id: 26,
+        name: "Chicken Curry",
+        category: "nonveg",
+        type: "nonveg",
+        description: "Classic Indian chicken curry with aromatic spices",
+        image: "https://i.pinimg.com/736x/b0/a0/de/b0a0de527832a0e2cc6d57bfdcf09808.jpg",
+        time: 45,
+        rating: 4.7,
+        ingredients: [
+            "500g chicken pieces",
+            "2 onions, finely chopped",
+            "3 tomatoes, pureed",
+            "1 tbsp ginger-garlic paste",
+            "2 tsp coriander powder",
+            "1 tsp turmeric powder",
+            "1 tsp garam masala",
+            "2 tbsp oil",
+            "Fresh coriander for garnish",
+            "Salt to taste"
+        ],
+        instructions: [
+            "Heat oil in pressure cooker, sauté onions until golden brown",
+            "Add ginger-garlic paste, cook until raw smell disappears",
+            "Add tomato puree, cook until oil separates from masala",
+            "Add all spice powders and cook for 2 minutes",
+            "Add chicken pieces and mix well to coat with masala",
+            "Add water and pressure cook for 3 whistles",
+            "Let pressure release naturally, garnish with coriander",
+            "Serve hot with rice or roti"
+        ]
+    },
+    {
+        id: 27,
+        name: "Fish Fry",
+        category: "nonveg",
+        type: "nonveg",
+        description: "Crispy fried fish marinated with Indian spices",
+        image: "https://i.pinimg.com/736x/a6/bb/b4/a6bbb413e5c2a3ce4ccc8540df0ab2d6.jpg",
+        time: 30,
+        rating: 4.6,
+        ingredients: [
+            "4 fish fillets (surmai or pomfret)",
+            "2 tsp red chili powder",
+            "1 tsp turmeric powder",
+            "1 tsp ginger-garlic paste",
+            "2 tbsp lemon juice",
+            "2 tbsp rice flour",
+            "Oil for shallow frying",
+            "Salt to taste",
+            "Lemon wedges for serving",
+            "Onion rings for garnish"
+        ],
+        instructions: [
+            "Clean fish fillets and make slits on both sides",
+            "Mix all spices with lemon juice to make marinade",
+            "Apply marinade generously on fish fillets, cover and refrigerate for 1 hour",
+            "Heat oil in pan for shallow frying",
+            "Coat marinated fish with rice flour",
+            "Shallow fry on medium heat until golden brown on both sides",
+            "Drain on paper towel to remove excess oil",
+            "Serve hot with lemon wedges and onion rings"
+        ]
+    },
+    {
+        id: 28,
+        name: "Mutton Rogan Josh",
+        category: "nonveg",
+        type: "nonveg",
+        description: "Kashmiri style mutton curry with rich gravy",
+        image: "https://i.pinimg.com/1200x/2d/91/13/2d9113b94f0e87e3a40c2490c6f7a0f0.jpg",
+        time: 90,
+        rating: 4.8,
+        ingredients: [
+            "500g mutton pieces",
+            "2 cups curd",
+            "3 onions, finely chopped",
+            "2 tbsp ginger-garlic paste",
+            "2 tsp Kashmiri red chili powder",
+            "1 tsp fennel powder",
+            "1 tsp garam masala",
+            "4 tbsp mustard oil",
+            "Fresh coriander for garnish",
+            "Salt to taste"
+        ],
+        instructions: [
+            "Marinate mutton with curd and half the spices for 2 hours",
+            "Heat mustard oil until smoking point, then reduce heat",
+            "Sauté onions until golden brown",
+            "Add ginger-garlic paste and remaining spices, cook for 2 minutes",
+            "Add marinated mutton and cook on high heat for 10 minutes",
+            "Add water and pressure cook for 6-7 whistles",
+            "Let pressure release naturally, simmer to thicken gravy",
+            "Garnish with coriander and serve hot with rice"
+        ]
+    },
+    {
+        id: 29,
+        name: "Egg Biryani",
+        category: "nonveg",
+        type: "nonveg",
+        description: "Fragrant rice layered with spiced boiled eggs",
+        image: "https://i.pinimg.com/1200x/fb/59/60/fb596057f73356f0fa951a1b05ca31a2.jpg",
+        time: 50,
+        rating: 4.6,
+        ingredients: [
+            "6 boiled eggs",
+            "2 cups basmati rice, soaked",
+            "2 onions, sliced and fried",
+            "1 cup curd",
+            "2 tbsp biryani masala",
+            "1 tsp saffron strands in milk",
+            "4 tbsp ghee",
+            "Whole spices (bay leaf, cardamom, cinnamon)",
+            "Mint and coriander leaves",
+            "Salt to taste"
+        ],
+        instructions: [
+            "Make slits on boiled eggs and marinate with curd and spices for 30 minutes",
+            "Parboil rice with whole spices until 70% cooked. Drain",
+            "Heat ghee in heavy bottom pan, layer with marinated eggs",
+            "Spread half cooked rice over eggs",
+            "Sprinkle fried onions, mint and coriander",
+            "Add remaining rice layer, sprinkle saffron milk",
+            "Cover with tight lid, cook on dum (steam) for 20 minutes",
+            "Let it rest for 10 minutes, fluff gently and serve with raita"
+        ]
+    },
+    {
+        id: 30,
+        name: "Butter Chicken",
+        category: "nonveg",
+        type: "nonveg",
+        description: "Tender chicken in rich buttery tomato gravy",
+        image: "https://images.unsplash.com/photo-1565557623262-b51c2513a641?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
+        time: 50,
+        rating: 4.9,
+        ingredients: [
+            "500g chicken boneless pieces",
+            "1 cup fresh cream",
+            "4 tomatoes, pureed",
+            "2 tbsp butter",
+            "1 tbsp kasuri methi",
+            "2 tsp sugar",
+            "1 tbsp ginger-garlic paste",
+            "2 tsp garam masala",
+            "1 tsp red chili powder",
+            "Salt to taste"
+        ],
+        instructions: [
+            "Marinate chicken with curd and spices for 2 hours",
+            "Grill or pan-fry chicken until cooked. Keep aside",
+            "Heat butter, sauté ginger-garlic paste until fragrant",
+            "Add tomato puree, cook until oil separates and raw smell goes",
+            "Add all spices and cook until gravy thickens",
+            "Add grilled chicken pieces, simmer for 10 minutes",
+            "Add fresh cream and kasuri methi, cook for 5 more minutes",
+            "Finish with butter and cream, serve with naan or rice"
+        ]
+    },
+
+    // 💚 Vegan (5 Dishes)
+    {
+        id: 31,
+        name: "Chana Masala",
+        category: "vegan",
+        type: "vegan",
+        description: "Spicy chickpea curry without any dairy products",
+        image: "https://i.pinimg.com/1200x/84/05/04/84050482fcc8fd3c65fc6d1012edfa2e.jpg",
+        time: 35,
+        rating: 4.6,
+        ingredients: [
+            "2 cups chickpeas, soaked overnight",
+            "2 onions, finely chopped",
+            "3 tomatoes, pureed",
+            "1 tbsp ginger-garlic paste",
+            "2 tsp chana masala",
+            "1 tsp amchur powder",
+            "1 tsp garam masala",
+            "2 tbsp oil",
+            "Fresh coriander for garnish",
+            "Salt to taste"
+        ],
+        instructions: [
+            "Pressure cook chickpeas until soft and tender",
+            "Heat oil in pan, sauté onions until golden brown",
+            "Add ginger-garlic paste, cook until raw smell disappears",
+            "Add tomato puree, cook until oil separates from masala",
+            "Add all spice powders and cook for 2 minutes",
+            "Add cooked chickpeas with some water, simmer for 15 minutes",
+            "Add amchur powder at the end for tanginess",
+            "Garnish with fresh coriander and serve hot"
+        ]
+    },
+    {
+        id: 32,
+        name: "Vegetable Stir Fry",
+        category: "vegan",
+        type: "vegan",
+        description: "Quick and healthy mixed vegetable stir fry",
+        image: "https://i.pinimg.com/1200x/98/41/90/98419024ef778525ccfb9fb0b7b9b821.jpg",
+        time: 20,
+        rating: 4.4,
+        ingredients: [
+            "3 cups mixed vegetables (broccoli, bell peppers, carrots, beans)",
+            "4 garlic cloves, minced",
+            "1 inch ginger, julienned",
+            "2 tbsp soy sauce",
+            "1 tbsp vinegar",
+            "1 tsp red chili flakes",
+            "2 tbsp olive oil",
+            "Spring onions for garnish",
+            "Salt to taste",
+            "Black pepper to taste"
+        ],
+        instructions: [
+            "Heat olive oil in wok or large pan on high heat",
+            "Add minced garlic and ginger, stir fry for 30 seconds",
+            "Add harder vegetables first (carrots, beans), stir fry for 2 minutes",
+            "Add remaining vegetables and stir fry for 3-4 minutes",
+            "Add soy sauce, vinegar, and seasonings",
+            "Toss everything together on high heat for 2 minutes",
+            "Vegetables should remain crisp, not overcooked",
+            "Garnish with spring onions and serve hot"
+        ]
+    },
+    {
+        id: 33,
+        name: "Tofu Curry",
+        category: "vegan",
+        type: "vegan",
+        description: "Tofu cubes in coconut milk based curry",
+        image: "https://i.pinimg.com/1200x/09/30/3d/09303d78bcfa0b34ae43d7c2adb4a572.jpg",
+        time: 30,
+        rating: 4.5,
+        ingredients: [
+            "200g firm tofu, cubed",
+            "1 cup coconut milk",
+            "1 onion, finely chopped",
+            "2 tomatoes, pureed",
+            "1 tbsp curry powder",
+            "1 tsp turmeric powder",
+            "2 tbsp coconut oil",
+            "Fresh cilantro for garnish",
+            "Salt to taste",
+            "Lemon juice for tanginess"
+        ],
+        instructions: [
+            "Press tofu to remove excess water, then cut into cubes",
+            "Heat coconut oil, sauté onions until translucent",
+            "Add curry powder and turmeric, cook for 1 minute",
+            "Add tomato puree and cook until oil separates",
+            "Add coconut milk and bring to simmer",
+            "Gently add tofu cubes and cook for 10 minutes on low flame",
+            "Add salt and lemon juice to taste",
+            "Garnish with fresh cilantro and serve hot"
+        ]
+    },
+    {
+        id: 34,
+        name: "Lentil Soup",
+        category: "vegan",
+        type: "vegan",
+        description: "Hearty and nutritious lentil soup with vegetables",
+        image: "https://i.pinimg.com/1200x/d1/d8/1f/d1d81f0ceca2a1743f0cb5ba25376347.jpg",
+        time: 35,
+        rating: 4.5,
+        ingredients: [
+            "1 cup masoor dal (red lentils)",
+            "1 carrot, chopped",
+            "1 potato, cubed",
+            "1 onion, chopped",
+            "3 garlic cloves, minced",
+            "1 tsp cumin seeds",
+            "1 tsp turmeric powder",
+            "2 tbsp olive oil",
+            "Fresh parsley for garnish",
+            "Salt and pepper to taste"
+        ],
+        instructions: [
+            "Rinse lentils thoroughly until water runs clear",
+            "Heat olive oil in pot, add cumin seeds and let them splutter",
+            "Add chopped onions and garlic, sauté until golden",
+            "Add chopped vegetables and sauté for 3-4 minutes",
+            "Add lentils, turmeric and 4 cups of water",
+            "Bring to boil, then simmer for 25-30 minutes until lentils are soft",
+            "Season with salt and pepper",
+            "Garnish with fresh parsley and serve hot"
+        ]
+    },
+    {
+        id: 35,
+        name: "Coconut Rice",
+        category: "vegan",
+        type: "vegan",
+        description: "Fragrant rice cooked in coconut milk with spices",
+        image: "https://i.pinimg.com/1200x/3c/6e/50/3c6e50fbfa6c6df5baf8b0d6581bbabf.jpg",
+        time: 25,
+        rating: 4.4,
+        ingredients: [
+            "2 cups basmati rice, soaked",
+            "1 cup coconut milk",
+            "2 cups water",
+            "1 onion, sliced",
+            "2 green chilies, slit",
+            "10-12 curry leaves",
+            "1 tsp mustard seeds",
+            "2 tbsp coconut oil",
+            "Fresh coriander for garnish",
+            "Salt to taste"
+        ],
+        instructions: [
+            "Heat coconut oil in pressure cooker, add mustard seeds and curry leaves",
+            "Add sliced onions and green chilies, sauté until onions are translucent",
+            "Add drained rice and sauté for 2 minutes",
+            "Add coconut milk, water and salt",
+            "Pressure cook for 2 whistles on medium flame",
+            "Let pressure release naturally, fluff rice with fork",
+            "Garnish with fresh coriander",
+            "Serve hot with any vegan curry or chutney"
+        ]
+    }
+];
+
+// Current state
+let currentRecipes = [...recipes];
+let currentCategory = 'all';
+let currentRating = 0;
+let currentRecipeIndex = 0;
+let timerInterval = null;
+let timerSeconds = 0;
+let currentFeedbackRecipeId = null;
+
+// Initialize app when DOM loads
+document.addEventListener('DOMContentLoaded', function() {
+    initApp();
+});
+
+function initApp() {
+    // Login functionality
+    document.getElementById('loginForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const username = document.getElementById('username').value;
+        const password = document.getElementById('password').value;
+        
+        if(username && password) {
+            document.getElementById('loginPage').style.display = 'none';
+            document.getElementById('recipeApp').style.display = 'block';
+            loadRecipes();
+        }
+    });
+
+    // Logout functionality
+    document.getElementById('logoutBtn').addEventListener('click', function() {
+        document.getElementById('recipeApp').style.display = 'none';
+        document.getElementById('loginPage').style.display = 'flex';
+        document.getElementById('loginForm').reset();
+    });
+
+    // Navigation
+    document.querySelectorAll('.nav-link').forEach(link => {
+        link.addEventListener('click', function() {
+            const page = this.getAttribute('data-page');
+            showPage(page);
+            
+            // Update active nav
+            document.querySelectorAll('.nav-link').forEach(nav => nav.classList.remove('active'));
+            this.classList.add('active');
+        });
+    });
+
+    // Category filtering
+    document.querySelectorAll('.category-filter').forEach(filter => {
+        filter.addEventListener('click', function() {
+            const category = this.getAttribute('data-category');
+            currentCategory = category;
+            filterRecipes(category);
+            
+            // Update active filter
+            document.querySelectorAll('.category-filter').forEach(f => f.classList.remove('active'));
+            this.classList.add('active');
+        });
+    });
+
+    // Star rating
+    document.querySelectorAll('.star').forEach(star => {
+        star.addEventListener('click', function() {
+            currentRating = parseInt(this.getAttribute('data-rating'));
+            updateStars();
+            document.getElementById('ratingValue').value = currentRating;
+        });
+    });
+
+    // Add recipe form
+    document.getElementById('addRecipeForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        addNewRecipe();
+    });
+
+    // Feedback form
+    document.getElementById('feedbackForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        submitFeedback();
+    });
+
+    // Search functionality
+    document.getElementById('searchInput').addEventListener('keypress', function(e) {
+        if(e.key === 'Enter') {
+            searchRecipes();
+        }
+    });
+
+    // Recipe feedback modal
+    document.querySelectorAll('.feedback-star').forEach(star => {
+        star.addEventListener('click', function() {
+            const rating = parseInt(this.getAttribute('data-rating'));
+            updateFeedbackStars(rating);
+        });
+    });
+
+    document.getElementById('submitRecipeFeedback').addEventListener('click', function() {
+        submitRecipeFeedback();
+    });
+
+    document.getElementById('cancelFeedback').addEventListener('click', function() {
+        document.getElementById('feedbackModal').classList.remove('active');
+    });
+}
+
+// Load recipes into grid
+function loadRecipes() {
+    const recipesGrid = document.getElementById('recipesGrid');
+    const allRecipesGrid = document.getElementById('allRecipesGrid');
+    
+    displayRecipes(currentRecipes, recipesGrid);
+    displayRecipes(recipes, allRecipesGrid);
+}
+
+// Display recipes in a grid
+function displayRecipes(recipesToShow, container) {
+    container.innerHTML = '';
+    
+    if (recipesToShow.length === 0) {
+        container.innerHTML = `
+            <div class="empty-state">
+                <h3>No Recipes Found</h3>
+                <p>Try a different search term or filter to find delicious recipes!</p>
+            </div>
+        `;
+        return;
+    }
+    
+    recipesToShow.forEach((recipe, index) => {
+        const recipeCard = `
+            <div class="recipe-card">
+                <div class="recipe-img" style="background-image: url('${recipe.image}')" onclick="showRecipeDetail(${index})"></div>
+                <div class="recipe-info">
+                    <h3 onclick="showRecipeDetail(${index})">${recipe.name}</h3>
+                    <p onclick="showRecipeDetail(${index})">${recipe.description}</p>
+                    <div class="recipe-meta">
+                        <span>⏱ ${recipe.time} mins</span>
+                        <span>⭐ ${recipe.rating}</span>
+                        <span>${getTypeIcon(recipe.type)}</span>
+                    </div>
+                    <div class="recipe-feedback">
+                        <span>${getRandomReviews()} reviews</span>
+                        <button class="feedback-btn" onclick="openFeedbackModal(${recipe.id})">
+                            <span>💬</span> Rate & Review
+                        </button>
+                    </div>
+                </div>
+            </div>
+        `;
+        container.innerHTML += recipeCard;
+    });
+}
+
+// Show recipe detail page
+function showRecipeDetail(index) {
+    currentRecipeIndex = index;
+    const recipe = currentRecipes[index];
+    
+    const recipeDetailHTML = `
+        <section class="hero">
+            <h1>${recipe.name}</h1>
+            <p>${recipe.description}</p>
+        </section>
+
+        <div class="recipe-detail">
+            <div class="recipe-header">
+                <div class="recipe-hero-img" style="background-image: url('${recipe.image}')"></div>
+                <div class="recipe-title">
+                    <h1>${recipe.name}</h1>
+                    <div class="recipe-meta-info">
+                        <span>⏱ ${recipe.time} minutes</span>
+                        <span>⭐ ${recipe.rating}/5</span>
+                        <span>${getTypeIcon(recipe.type)} ${recipe.type.toUpperCase()}</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="recipe-content">
+                <div class="ingredients-section">
+                    <h3>Ingredients</h3>
+                    <ul class="ingredients-list">
+                        ${recipe.ingredients.map(ingredient => `<li>${ingredient}</li>`).join('')}
+                    </ul>
+                </div>
+                
+                <div class="instructions-section">
+                    <h3>Instructions</h3>
+                    <ol class="instructions-list">
+                        ${recipe.instructions.map(instruction => `<li>${instruction}</li>`).join('')}
+                    </ol>
+                </div>
+            </div>
+            
+            <div class="timer-section">
+                <h3>Cooking Timer</h3>
+                <div class="timer-display" id="timerDisplay">00:00</div>
+                <div class="timer-controls">
+                    <button class="timer-btn start-btn" onclick="startTimer()">Start Timer</button>
+                    <button class="timer-btn pause-btn" onclick="pauseTimer()">Pause</button>
+                    <button class="timer-btn reset-btn" onclick="resetTimer()">Reset</button>
+                </div>
+            </div>
+            
+            <div class="recipe-nav">
+                <button class="nav-btn" onclick="showPrevRecipe()" ${currentRecipeIndex === 0 ? 'disabled' : ''}>
+                    ← Previous Recipe
+                </button>
+                <button class="nav-btn" onclick="showHomePage()">
+                    Back to Recipes
+                </button>
+                <button class="nav-btn" onclick="showNextRecipe()" ${currentRecipeIndex === currentRecipes.length - 1 ? 'disabled' : ''}>
+                    Next Recipe →
+                </button>
+            </div>
+        </div>
+    `;
+    
+    document.getElementById('recipe-detail').innerHTML = recipeDetailHTML;
+    showPage('recipe-detail');
+}
+
+// Timer functions
+function startTimer() {
+    if (timerInterval) return;
+    
+    timerInterval = setInterval(() => {
+        timerSeconds++;
+        updateTimerDisplay();
+    }, 1000);
+}
+
+function pauseTimer() {
+    clearInterval(timerInterval);
+    timerInterval = null;
+}
+
+function resetTimer() {
+    pauseTimer();
+    timerSeconds = 0;
+    updateTimerDisplay();
+}
+
+function updateTimerDisplay() {
+    const minutes = Math.floor(timerSeconds / 60);
+    const seconds = timerSeconds % 60;
+    document.getElementById('timerDisplay').textContent = 
+        `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+}
+
+// Navigation between recipes
+function showPrevRecipe() {
+    if (currentRecipeIndex > 0) {
+        showRecipeDetail(currentRecipeIndex - 1);
+    }
+}
+
+function showNextRecipe() {
+    if (currentRecipeIndex < currentRecipes.length - 1) {
+        showRecipeDetail(currentRecipeIndex + 1);
+    }
+}
+
+function showHomePage() {
+    showPage('home');
+    document.querySelectorAll('.nav-link').forEach(nav => nav.classList.remove('active'));
+    document.querySelector('.nav-link[data-page="home"]').classList.add('active');
+}
+
+// Helper function for type icons
+function getTypeIcon(type) {
+    const icons = {
+        'veg': '🌱',
+        'nonveg': '🍗',
+        'vegan': '💚'
+    };
+    return icons[type] || '';
+}
+
+// Show specific page
+function showPage(pageName) {
+    document.querySelectorAll('.page').forEach(page => {
+        page.classList.remove('active');
+    });
+    document.getElementById(pageName).classList.add('active');
+    
+    // Reload recipes when switching to recipes page
+    if (pageName === 'recipes' || pageName === 'home') {
+        loadRecipes();
+    }
+}
+
+// Filter recipes by category
+function filterRecipes(category) {
+    if(category === 'all') {
+        currentRecipes = [...recipes];
+    } else {
+        currentRecipes = recipes.filter(recipe => 
+            recipe.category === category || recipe.type === category
+        );
+    }
+    
+    // Update both grids
+    const recipesGrid = document.getElementById('recipesGrid');
+    const allRecipesGrid = document.getElementById('allRecipesGrid');
+    
+    displayRecipes(currentRecipes, recipesGrid);
+    displayRecipes(currentRecipes, allRecipesGrid);
+}
+
+// Search recipes
+function searchRecipes() {
+    const searchTerm = document.getElementById('searchInput').value.toLowerCase().trim();
+    
+    if(!searchTerm) {
+        // If search is empty, show filtered recipes
+        filterRecipes(currentCategory);
+        return;
+    }
+    
+    const filteredRecipes = recipes.filter(recipe => 
+        recipe.name.toLowerCase().includes(searchTerm) || 
+        recipe.description.toLowerCase().includes(searchTerm) ||
+        recipe.ingredients.some(ing => ing.toLowerCase().includes(searchTerm))
+    );
+    
+    currentRecipes = filteredRecipes;
+    loadRecipes();
+}
+
+// Update star rating display
+function updateStars() {
+    document.querySelectorAll('.star').forEach(star => {
+        const starRating = parseInt(star.getAttribute('data-rating'));
+        if(starRating <= currentRating) {
+            star.classList.add('active');
+        } else {
+            star.classList.remove('active');
+        }
+    });
+}
+
+// Add new recipe
+function addNewRecipe() {
+    const name = document.getElementById('recipeName').value;
+    const category = document.getElementById('recipeCategory').value;
+    const type = document.getElementById('recipeType').value;
+    const description = document.getElementById('recipeDescription').value;
+    const ingredients = document.getElementById('recipeIngredients').value.split('\n').filter(line => line.trim());
+    const instructions = document.getElementById('recipeInstructions').value.split('\n').filter(line => line.trim());
+    const time = parseInt(document.getElementById('cookingTime').value);
+    const image = document.getElementById('recipeImage').value || "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60";
+    
+    // Validation
+    if (!name || !category || !type || !description || !ingredients.length || !instructions.length || !time) {
+        alert('Please fill all required fields');
+        return;
+    }
+    
+    const newRecipe = {
+        id: recipes.length + 1,
+        name,
+        category,
+        type,
+        description,
+        ingredients,
+        instructions,
+        image,
+        time,
+        rating: 4.5
+    };
+    
+    // Add to recipes array
+    recipes.push(newRecipe);
+    currentRecipes.push(newRecipe);
+    
+    // Reset form
+    document.getElementById('addRecipeForm').reset();
+    
+    // Show success message
+    document.getElementById('formMessage').innerHTML = 
+        '<div class="message success">🎉 Recipe added successfully!</div>';
+    
+    // Reload recipes
+    loadRecipes();
+    
+    // Clear message after 3 seconds
+    setTimeout(() => {
+        document.getElementById('formMessage').innerHTML = '';
+    }, 3000);
+}
+
+// Submit feedback
+function submitFeedback() {
+    const name = document.getElementById('feedbackName').value;
+    const email = document.getElementById('feedbackEmail').value;
+    const rating = document.getElementById('ratingValue').value;
+    const message = document.getElementById('feedbackMessage').value;
+    
+    // Validation
+    if (!name || !email || !rating || !message) {
+        alert('Please fill all fields and select a rating');
+        return;
+    }
+    
+    // Reset form
+    document.getElementById('feedbackForm').reset();
+    currentRating = 0;
+    updateStars();
+    
+    // Show success message
+    document.getElementById('feedbackMessageDiv').innerHTML = 
+        '<div class="message success">✅ Thank you for your feedback!</div>';
+    
+    // Clear message after 3 seconds
+    setTimeout(() => {
+        document.getElementById('feedbackMessageDiv').innerHTML = '';
+    }, 3000);
+}
+
+// Recipe feedback functions
+function openFeedbackModal(recipeId) {
+    currentFeedbackRecipeId = recipeId;
+    document.getElementById('feedbackModal').classList.add('active');
+    document.getElementById('recipeFeedback').value = '';
+    updateFeedbackStars(0);
+}
+
+function updateFeedbackStars(rating) {
+    document.querySelectorAll('.feedback-star').forEach(star => {
+        const starRating = parseInt(star.getAttribute('data-rating'));
+        if(starRating <= rating) {
+            star.classList.add('active');
+        } else {
+            star.classList.remove('active');
+        }
+    });
+}
+
+function submitRecipeFeedback() {
+    const feedback = document.getElementById('recipeFeedback').value;
+    const stars = document.querySelectorAll('.feedback-star.active').length;
+    
+    if (stars === 0) {
+        alert('Please select a rating');
+        return;
+    }
+    
+    // In a real app, you would save this to a database
+    // For now, we'll just show a success message
+    document.getElementById('feedbackModal').classList.remove('active');
+    
+    // Show success message
+    alert(`Thank you for your ${stars}-star rating! Your feedback has been recorded.`);
+}
+
+// Helper function to generate random review counts
+function getRandomReviews() {
+    const counts = [12, 25, 38, 47, 56, 63, 72, 89, 104, 127];
+    return counts[Math.floor(Math.random() * counts.length)];
+}
