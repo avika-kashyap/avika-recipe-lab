@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Recipe Hub — All Indian Recipes</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <div class="brand"><div class="logo">RH</div>Recipe Hub</div>
+    <div class="controls">
+      <div class="search-wrap" title="Search by title, ingredient or cuisine">
+        <input id="searchInput" placeholder="Search by title, ingredient or cuisine..." />
+        <button class="btn btn-accent" id="searchBtn">Search</button>
+      </div>
+      <button class="btn btn-primary" id="addBtn">+ Add Recipe</button>
+    </div>
+  </header>
+
+  <main class="container">
+    <aside class="left-col card">
+      <h4>Filters</h4>
+      <div>
+        <div class="small">Quick Type</div>
+        <div style="margin-top:8px" class="flex">
+          <button class="chip" id="filterVeg">Veg</button>
+          <button class="chip" id="filterVegan">Vegan</button>
+          <button class="chip" id="filterNonVeg">Non-Veg</button>
+        </div>
+      </div>
+
+      <div>
+        <div class="small">Cuisine</div>
+        <div class="cuisine-list" id="cuisineList"></div>
+      </div>
+
+      <div>
+        <div class="small">Quick Links</div>
+        <div style="margin-top:8px" class="flex">
+          <button class="chip" id="showAll">Show All</button>
+          <button class="chip" id="showSweets">Sweets</button>
+          <button class="chip" id="showDrinks">Drinks</button>
+        </div>
+      </div>
+
+      <div>
+        <div class="small">Hints</div>
+        <div class="small muted" style="margin-top:6px">
+          Click recipe → open detail. Use + Add Recipe to add. Search and filters persist.
+        </div>
+      </div>
+    </aside>
+
+    <section class="middle-col">
+      <div class="card">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
+          <h4 style="margin:0">All Recipes</h4>
+          <div class="small muted" id="countInfo">0 recipes</div>
+        </div>
+        <div class="grid" id="grid"></div>
+      </div>
+    </section>
+
+    <aside class="right-col card" id="details">
+      <div id="noSelection">
+        <h4>Recipe Detail</h4>
+        <p class="small muted">Select a recipe card to view full details, ingredients, steps and add a review.</p>
+      </div>
+
+      <div id="detailContent" style="display:none">
+        <img src="" alt="" class="detail-img" id="detailImg" />
+        <h3 id="detailTitle"></h3>
+        <div class="meta"><div id="detailCuisine"></div><div id="detailTime"></div></div>
+
+        <h4 style="margin-top:12px">Ingredients</h4>
+        <ul class="ingredients" id="detailIngredients"></ul>
+
+        <h4>Steps</h4>
+        <ol class="steps" id="detailSteps"></ol>
+
+        <div style="margin-top:12px;border-top:1px dashed #eee;padding-top:10px">
+          <h4>Reviews</h4>
+          <div id="reviewsList" class="small muted">No reviews yet — be the first!</div>
+
+          <div style="margin-top:8px">
+            <input id="reviewer" placeholder="Your name (optional)" />
+            <textarea id="reviewText" placeholder="Write a short review"></textarea>
+            <div style="display:flex;gap:8px;margin-top:8px">
+              <button class="btn btn-primary" id="addReviewBtn">Add Review</button>
+              <button class="btn" id="clearReviewsBtn">Clear Reviews</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </aside>
+  </main>
+
+  <!-- Modal: Add Recipe -->
+  <div class="modal-backdrop" id="modal">
+    <div class="modal" role="dialog" aria-modal="true">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
+        <h3 style="margin:0">Add New Recipe</h3>
+        <button class="btn" id="closeModal">Close</button>
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:10px">
+        <div>
+          <label>Title</label>
+          <input id="rTitle" placeholder="Recipe title (e.g. Gulab Jamun)" />
+        </div>
+
+        <div class="form-row">
+          <div style="flex:1">
+            <label>Cuisine / Category</label>
+            <select id="rCuisine">
+              <option>Indian Main</option>
+              <option>North Indian</option>
+              <option>South Indian</option>
+              <option>Snacks</option>
+              <option>Sweets</option>
+              <option>Drinks</option>
+              <option>Jain</option>
+              <option>Coastal</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div style="width:160px">
+            <label>Time</label>
+            <input id="rTime" placeholder="e.g. 30 mins" />
+          </div>
+        </div>
+
+        <div>
+          <label>Type</label>
+          <div style="display:flex;gap:8px;margin-top:6px">
+            <label><input type="radio" name="type" value="veg" checked> Veg</label>
+            <label><input type="radio" name="type" value="vegan"> Vegan</label>
+            <label><input type="radio" name="type" value="nonveg"> Non-Veg</label>
+          </div>
+        </div>
+
+        <div>
+          <label>Ingredients (comma separated)</label>
+          <textarea id="rIngredients" rows="3" placeholder="eg: milk, sugar, cardamom"></textarea>
+        </div>
+
+        <div>
+          <label>Steps (each step on new line — detailed)</label>
+          <textarea id="rSteps" rows="6" placeholder="Step 1&#10;Step 2&#10;..."></textarea>
+        </div>
+
+        <div>
+          <label>Image URL (optional)</label>
+          <input id="rImage" placeholder="Paste an image URL (optional)" />
+        </div>
+
+        <div style="display:flex;justify-content:flex-end;gap:8px">
+          <button class="btn" id="cancelAdd">Cancel</button>
+          <button class="btn btn-primary" id="saveAdd">Save Recipe</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>Built with  — Recipe Hub (demo)</footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
